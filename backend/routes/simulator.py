@@ -1,9 +1,8 @@
 """
 Route: POST /api/simulate
-Life Decision Simulator endpoint. Requires authentication.
+Life Decision Simulator endpoint.
 """
 from flask import Blueprint, request, jsonify
-from flask_login import login_required
 from utils.simulator_engine import simulate, BASE_SCENARIOS
 from utils.ai_engine import generate_ai_recommendation
 
@@ -13,7 +12,6 @@ VALID_SCENARIOS = list(BASE_SCENARIOS.keys())
 
 
 @simulator_bp.route("/simulate", methods=["POST"])
-@login_required
 def run_simulation():
     data = request.get_json(silent=True) or {}
 
