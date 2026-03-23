@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS — AI Digital Twin & Life Decision Simulator</title>
+  <meta name="description" content="NEXUS combines an AI Digital Twin and Life Decision Simulator to help you navigate the future with intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="brand-mark"></div>
+        <span class="brand-name">NEXUS</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#twin" class="nav-link">Digital Twin</a></li>
+        <li><a href="#simulator" class="nav-link">Life Simulator</a></li>
+        <li><a href="#how" class="nav-link">How It Works</a></li>
+        <li><a href="#demo" class="nav-link">Live Demo</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="backend-status" id="backend-status" title="Checking backend...">
+          <span class="backend-dot"></span>
+          <span class="backend-label">API</span>
+        </div>
+        <a href="#demo" class="nav-cta">Try Live</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Live Product — AI Backend Connected</div>
+      <h1 class="hero-title">
+        Your Intelligence.<br />
+        <span class="gradient-text">Multiplied.</span>
+      </h1>
+      <p class="hero-subtitle">
+        NEXUS creates your AI Digital Twin that thinks and communicates like you, while our Life Decision Simulator maps out where every major choice leads — before you make it.
+      </p>
+      <div class="hero-actions">
+        <a href="#twin" class="btn-primary">Explore the Platform</a>
+        <a href="#demo" class="btn-ghost">Watch Demo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">98.4%</span>
+          <span class="stat-label">Behavioral Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">12x</span>
+          <span class="stat-label">Decision Confidence</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">500ms</span>
+          <span class="stat-label">Response Latency</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="twin-card">
+        <div class="twin-avatar">
+          <div class="avatar-ring"></div>
+          <div class="avatar-ring ring-2"></div>
+          <div class="avatar-core">
+            <div class="avatar-pulse"></div>
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="28" r="16" stroke="rgba(99,102,241,0.8)" stroke-width="1.5"/>
+              <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="rgba(99,102,241,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="40" cy="28" r="8" fill="rgba(99,102,241,0.15)" stroke="rgba(139,92,246,0.6)" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        <div class="twin-info">
+          <div class="twin-label">Digital Twin Active</div>
+          <div class="twin-name">Your AI Clone</div>
+          <div class="twin-status">
+            <span class="status-dot"></span>
+            Processing 3 messages
+          </div>
+        </div>
+        <div class="twin-metrics">
+          <div class="metric-row">
+            <span>Style Match</span>
+            <div class="metric-bar"><div class="metric-fill" style="width:94%"></div></div>
+            <span>94%</span>
+          </div>
+          <div class="metric-row">
+            <span>Tone Match</span>
+            <div class="metric-bar"><div class="metric-fill" style="width:89%"></div></div>
+            <span>89%</span>
+          </div>
+          <div class="metric-row">
+            <span>Decision Align</span>
+            <div class="metric-bar"><div class="metric-fill" style="width:97%"></div></div>
+            <span>97%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Twin Section -->
+  <section class="section" id="twin">
+    <div class="container">
+      <div class="section-label">Module One</div>
+      <h2 class="section-title">AI Digital Twin</h2>
+      <p class="section-desc">Your AI counterpart learns everything about how you think, write, and decide. It handles your digital presence while you focus on what matters.</p>
+
+      <div class="twin-grid">
+        <div class="feature-card card-glow">
+          <div class="feature-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <h3>Communication Clone</h3>
+          <p>Replies to emails and messages in your exact tone, vocabulary, and style. Trained on your past communications with zero data exposure.</p>
+          <div class="feature-tag">NLP + Fine-tuning</div>
+        </div>
+
+        <div class="feature-card card-glow">
+          <div class="feature-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.899L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+            </svg>
+          </div>
+          <h3>Virtual Meeting Avatar</h3>
+          <p>Attend meetings as your AI avatar. Lip-synced, real-time responses generated from your behavioral model. Your presence, without being present.</p>
+          <div class="feature-tag">Real-time Synthesis</div>
+        </div>
+
+        <div class="feature-card card-glow">
+          <div class="feature-icon icon-cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3>Habit & Decision Engine</h3>
+          <p>Continuously learns your preferences, working hours, decision patterns, and priorities to better represent you in autonomous tasks.</p>
+          <div class="feature-tag">Behavioral AI</div>
+        </div>
+
+        <div class="feature-card card-glow">
+          <div class="feature-icon icon-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3>Private by Design</h3>
+          <p>All behavioral data is encrypted end-to-end and stored locally. Your twin runs on-device. No cloud exposure. No third-party access.</p>
+          <div class="feature-tag">Zero-Trust Architecture</div>
+        </div>
+      </div>
+
+      <!-- Twin Demo Panel -->
+      <div class="demo-panel">
+        <div class="demo-header">
+          <div class="demo-title">Live Communication Preview</div>
+          <div class="demo-badge">Twin Responding</div>
+        </div>
+        <div class="chat-window">
+          <div class="chat-incoming">
+            <div class="chat-source">Incoming — Ravi (Manager)</div>
+            <div class="chat-bubble incoming-bubble">
+              Hey, are you able to join the 3 PM sprint review today? We need your input on the API design decisions.
+            </div>
+          </div>
+          <div class="chat-outgoing">
+            <div class="chat-source">AI Twin Response — Generated in 0.4s</div>
+            <div class="chat-bubble outgoing-bubble">
+              I'll be there. Can you share the API spec doc beforehand so I can review it before the call? Would be good to align on the auth flow before we discuss the broader design.
+            </div>
+            <div class="twin-confidence">
+              <span class="conf-label">Style Confidence</span>
+              <div class="conf-bar"><div class="conf-fill"></div></div>
+              <span class="conf-pct">96%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Life Decision Simulator -->
+  <section class="section section-dark" id="simulator">
+    <div class="container">
+      <div class="section-label">Module Two</div>
+      <h2 class="section-title">Life Decision Simulator</h2>
+      <p class="section-desc">Before committing to a major life choice, simulate it. See where different paths lead using real-world data, behavioral patterns, and probabilistic forecasting.</p>
+
+      <div class="simulator-layout">
+        <div class="sim-left">
+          <div class="sim-input-card">
+            <div class="sim-input-label">Your Decision</div>
+            <div class="sim-scenarios">
+              <button class="scenario-btn active" onclick="setScenario(this, 'career')">Career Change</button>
+              <button class="scenario-btn" onclick="setScenario(this, 'startup')">Start a Business</button>
+              <button class="scenario-btn" onclick="setScenario(this, 'relocation')">Relocate City</button>
+              <button class="scenario-btn" onclick="setScenario(this, 'investment')">Investment</button>
+            </div>
+            <div class="sim-detail-box" id="sim-detail">
+              <p class="sim-detail-question">Switching from software engineering to product management at a mid-size startup.</p>
+              <div class="sim-params">
+                <div class="sim-param">
+                  <label>Current Experience</label>
+                  <div class="param-slider">
+                    <input type="range" min="1" max="10" value="5" class="slider" />
+                    <span>5 years</span>
+                  </div>
+                </div>
+                <div class="sim-param">
+                  <label>Risk Tolerance</label>
+                  <div class="param-slider">
+                    <input type="range" min="1" max="10" value="6" class="slider" />
+                    <span>Moderate-High</span>
+                  </div>
+                </div>
+                <div class="sim-param">
+                  <label>Financial Runway</label>
+                  <div class="param-slider">
+                    <input type="range" min="1" max="10" value="4" class="slider" />
+                    <span>8 months</span>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-primary btn-full" onclick="runSimulation()">Run Simulation</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-right">
+          <div class="sim-results" id="sim-results">
+            <div class="sim-paths">
+              <div class="path-card path-green">
+                <div class="path-header">
+                  <div class="path-label">Path A — Optimal</div>
+                  <div class="path-prob">62% probability</div>
+                </div>
+                <div class="path-title">Growth Trajectory</div>
+                <div class="path-timeline">
+                  <div class="timeline-item">
+                    <div class="tl-dot dot-success"></div>
+                    <div class="tl-content">
+                      <span class="tl-time">0–6 months</span>
+                      <span class="tl-event">Onboarding friction, salary dip of ~15%</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="tl-dot dot-success"></div>
+                    <div class="tl-content">
+                      <span class="tl-time">6–18 months</span>
+                      <span class="tl-event">Product ownership, skill acceleration</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="tl-dot dot-success"></div>
+                    <div class="tl-content">
+                      <span class="tl-time">18–36 months</span>
+                      <span class="tl-event">Senior PM role, 40% comp recovery</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="path-outcome">
+                  <div class="outcome-item">
+                    <span>Income Impact</span>
+                    <span class="outcome-val positive">+28% in 3 years</span>
+                  </div>
+                  <div class="outcome-item">
+                    <span>Career Satisfaction</span>
+                    <span class="outcome-val positive">High</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="path-card path-red">
+                <div class="path-header">
+                  <div class="path-label">Path B — Risk</div>
+                  <div class="path-prob">38% probability</div>
+                </div>
+                <div class="path-title">Friction Scenario</div>
+                <div class="path-timeline">
+                  <div class="timeline-item">
+                    <div class="tl-dot dot-warn"></div>
+                    <div class="tl-content">
+                      <span class="tl-time">0–6 months</span>
+                      <span class="tl-event">Role mismatch, knowledge gaps surface</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="tl-dot dot-warn"></div>
+                    <div class="tl-content">
+                      <span class="tl-time">6–12 months</span>
+                      <span class="tl-event">Performance review pressure, burnout risk</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="tl-dot dot-warn"></div>
+                    <div class="tl-content">
+                      <span class="tl-time">12–18 months</span>
+                      <span class="tl-event">Pivot back to engineering or restart search</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="path-outcome">
+                  <div class="outcome-item">
+                    <span>Income Impact</span>
+                    <span class="outcome-val negative">-12% over 18 months</span>
+                  </div>
+                  <div class="outcome-item">
+                    <span>Career Satisfaction</span>
+                    <span class="outcome-val negative">Low–Medium</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sim-recommendation">
+              <div class="rec-title">AI Recommendation</div>
+              <p class="rec-body">Based on your profile, transitioning is advisable if you complete a product management course within 3 months of starting. Building technical PM credibility first reduces your risk scenario probability from 38% to 19%.</p>
+              <div class="rec-actions">
+                <span class="rec-action-tag">PM Certification</span>
+                <span class="rec-action-tag">Side Project Validation</span>
+                <span class="rec-action-tag">Network Building</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section-label">Architecture</div>
+      <h2 class="section-title">How NEXUS Works</h2>
+      <p class="section-desc">A layered intelligence stack built on large behavioral models, probabilistic simulation engines, and privacy-first infrastructure.</p>
+
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Behavioral Ingestion</h3>
+            <p>NEXUS securely ingests your emails, calendar patterns, message threads, and document history. All processed locally using on-device LLM inference.</p>
+          </div>
+          <div class="step-tech">Local LLM / Edge AI</div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Twin Model Training</h3>
+            <p>Fine-tunes a personal behavioral model on your communication patterns, decision history, and preference signals. Updates continuously in the background.</p>
+          </div>
+          <div class="step-tech">LoRA Fine-tuning</div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Simulation Engine</h3>
+            <p>Life decisions are fed into a probabilistic outcome model trained on anonymized population data, economic indicators, and domain-specific research.</p>
+          </div>
+          <div class="step-tech">Monte Carlo + Causal AI</div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>Output & Control</h3>
+            <p>View, approve, or reject every twin action. Set boundaries for what your twin can handle autonomously vs. what requires your direct approval.</p>
+          </div>
+          <div class="step-tech">Human-in-the-Loop</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo Section -->
+  <section class="section section-demo" id="demo">
+    <div class="container">
+      <div class="section-label">Interactive Demo — Live Backend</div>
+      <h2 class="section-title">Talk to Your AI Twin</h2>
+      <p class="section-desc">Type any message below. Your AI Twin generates a real response via the NEXUS API, powered by a live language model.</p>
+
+      <div class="demo-api-info" id="demo-api-info">
+        <span class="api-info-dot backend-status"></span>
+        <span class="api-info-text">API: <code>POST /api/twin/respond</code></span>
+        <span class="api-latency" id="api-latency">Awaiting first request...</span>
+      </div>
+
+      <div class="demo-interface">
+        <div class="interface-sidebar">
+          <div class="sidebar-profile">
+            <div class="profile-avatar-wrap">
+              <div class="profile-avatar">
+                <div class="profile-initial">A</div>
+              </div>
+              <div class="profile-status-ring"></div>
+            </div>
+            <div class="profile-name">Arjun Mehta</div>
+            <div class="profile-role">Software Engineer, 5 yrs</div>
+          </div>
+          <div class="sidebar-stats">
+            <div class="sidebar-stat">
+              <div class="ss-label">Communication Style</div>
+              <div class="ss-val">Direct, Technical</div>
+            </div>
+            <div class="sidebar-stat">
+              <div class="ss-label">Response Tone</div>
+              <div class="ss-val">Concise, Formal</div>
+            </div>
+            <div class="sidebar-stat">
+              <div class="ss-label">Messages Processed</div>
+              <div class="ss-val" id="msg-count">4,218</div>
+            </div>
+            <div class="sidebar-stat">
+              <div class="ss-label">Model Status</div>
+              <div class="ss-val ss-active" id="model-status">Connected</div>
+            </div>
+            <div class="sidebar-stat">
+              <div class="ss-label">Last Response</div>
+              <div class="ss-val" id="last-latency">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="interface-main">
+          <div class="messages-area" id="messages-area">
+            <div class="msg-group msg-system">
+              <div class="msg-bubble msg-system-bubble">Twin model loaded. Send a message to begin — try asking about a meeting, a PR review, or a deadline.</div>
+            </div>
+          </div>
+          <div class="input-area">
+            <input type="text" class="message-input" id="demo-input" placeholder="e.g. Can you join the 3 PM call?" />
+            <button class="send-btn" id="send-btn" onclick="sendDemoMessage()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+          <div class="input-hint">Press Enter to send &nbsp;·&nbsp; Responses powered by NEXUS AI backend</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-orb"></div>
+    </div>
+    <div class="container cta-inner">
+      <div class="cta-badge">Built for the Future</div>
+      <h2 class="cta-title">The next version of you is already being built.</h2>
+      <p class="cta-desc">NEXUS is a research-grade platform built to demonstrate the real-world potential of AI behavioral cloning and life-path simulation. This is what the future of personal AI looks like.</p>
+      <div class="cta-actions">
+        <a href="#twin" class="btn-primary">Explore Digital Twin</a>
+        <a href="#simulator" class="btn-ghost">Try the Simulator</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand-mark"></div>
+        <span class="brand-name">NEXUS</span>
+      </div>
+      <div class="footer-note">AI Digital Twin & Life Decision Simulator — Hackathon 2025</div>
+      <div class="footer-tagline">Intelligence. Amplified.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
