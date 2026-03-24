@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — NEXUS</title>
+  <meta name="description" content="Create your NEXUS account — AI Digital Twin & Life Decision Simulator." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #050508;
+      --surface:   #0d0d14;
+      --border:    rgba(255,255,255,0.08);
+      --border-focus: rgba(99,102,241,0.6);
+      --text:      #f0f0f8;
+      --muted:     #8b8ba7;
+      --accent:    #6366f1;
+      --accent2:   #8b5cf6;
+      --success:   #10b981;
+      --error:     #ef4444;
+      --input-bg:  rgba(255,255,255,0.04);
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .auth-bg {
+      position: fixed; inset: 0; overflow: hidden; z-index: 0;
+    }
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); opacity: 0.18; animation: drift 12s ease-in-out infinite;
+    }
+    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, #8b5cf6, transparent); top: -200px; right: -150px; animation-delay: 0s; }
+    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, #6366f1, transparent); bottom: -150px; left: -100px; animation-delay: -5s; }
+    .orb-3 { width: 280px; height: 280px; background: radial-gradient(circle, #06b6d4, transparent); top: 40%; left: 20%; animation-delay: -2s; }
+
+    @keyframes drift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%      { transform: translate(-20px,25px) scale(1.05); }
+    }
+
+    .grid-overlay {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .auth-wrap {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+
+    .auth-card {
+      width: 100%; max-width: 460px;
+      background: rgba(13,13,20,0.85);
+      backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 40px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03) inset;
+      animation: cardIn 0.5s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .auth-brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 32px;
+    }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 20px rgba(99,102,241,0.4);
+    }
+    .brand-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 700; letter-spacing: 0.06em;
+      background: linear-gradient(135deg, #fff 30%, var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .auth-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px; font-weight: 700; color: var(--text);
+      margin-bottom: 6px; letter-spacing: -0.02em;
+    }
+    .auth-subtitle {
+      font-size: 14px; color: var(--muted); margin-bottom: 32px; line-height: 1.5;
+    }
+
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 500;
+      color: var(--muted); margin-bottom: 8px; letter-spacing: 0.02em;
+    }
+    .form-input {
+      width: 100%; padding: 12px 16px;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text);
+      font-size: 15px; font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.2); }
+    .form-input:focus {
+      border-color: var(--border-focus);
+      background: rgba(99,102,241,0.06);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+    }
+    .form-input.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+
+    .field-hint {
+      font-size: 11px; color: var(--muted); margin-top: 5px;
+    }
+
+    /* password strength */
+    .strength-bar {
+      display: flex; gap: 4px; margin-top: 8px;
+    }
+    .strength-seg {
+      flex: 1; height: 3px; border-radius: 2px;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.3s;
+    }
+    .strength-seg.weak   { background: var(--error); }
+    .strength-seg.medium { background: #f59e0b; }
+    .strength-seg.strong { background: var(--success); }
+
+    .alert {
+      padding: 12px 16px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; margin-bottom: 20px;
+      display: none; animation: fadeIn 0.3s ease;
+    }
+    .alert.show { display: flex; align-items: center; gap: 8px; }
+    .alert-error   { background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.25);  color: #fca5a5; }
+    .alert-success { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); color: #6ee7b7; }
+
+    @keyframes fadeIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+
+    .btn-auth {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; border: none; border-radius: 10px;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.35);
+      margin-top: 8px; letter-spacing: 0.01em;
+    }
+    .btn-auth:hover { opacity: 0.9; box-shadow: 0 6px 28px rgba(99,102,241,0.5); transform: translateY(-1px); }
+    .btn-auth:active { transform: scale(0.98); }
+    .btn-auth:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .btn-auth .spinner {
+      display: inline-block; width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .auth-divider {
+      text-align: center; font-size: 13px; color: var(--muted);
+      margin-top: 24px;
+    }
+    .auth-divider a {
+      color: var(--accent); text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .auth-divider a:hover { color: var(--accent2); text-decoration: underline; }
+
+    /* Terms note */
+    .terms-note {
+      font-size: 12px; color: var(--muted); text-align: center;
+      margin-top: 16px; line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-bg">
+    <div class="grid-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-mark"></div>
+        <span class="brand-name">NEXUS</span>
+      </div>
+
+      <h1 class="auth-title">Create your account</h1>
+      <p class="auth-subtitle">Join NEXUS and unlock your AI Digital Twin.</p>
+
+      <div class="alert alert-error" id="error-banner" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span id="error-text">Something went wrong.</span>
+      </div>
+      <div class="alert alert-success" id="success-banner" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span id="success-text">Account created! Redirecting…</span>
+      </div>
+
+      <form id="signup-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name">Full Name</label>
+          <input class="form-input" type="text" id="name" name="name"
+                 placeholder="Arjun Mehta" autocomplete="name" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-input" type="email" id="email" name="email"
+                 placeholder="you@example.com" autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-input" type="password" id="password" name="password"
+                 placeholder="Min. 6 characters" autocomplete="new-password"
+                 required id="password" />
+          <div class="strength-bar" id="strength-bar">
+            <div class="strength-seg" id="s1"></div>
+            <div class="strength-seg" id="s2"></div>
+            <div class="strength-seg" id="s3"></div>
+            <div class="strength-seg" id="s4"></div>
+          </div>
+          <div class="field-hint" id="strength-label">&nbsp;</div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:24px">
+          <label class="form-label" for="confirm">Confirm Password</label>
+          <input class="form-input" type="password" id="confirm" name="confirm"
+                 placeholder="Repeat your password" autocomplete="new-password" required />
+        </div>
+
+        <button class="btn-auth" type="submit" id="submit-btn">Create Account</button>
+      </form>
+
+      <div class="terms-note">
+        By signing up you agree to the NEXUS research project terms.
+      </div>
+
+      <div class="auth-divider">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const BACKEND = 'http://localhost:5000/api';
+
+    // If already logged in, skip straight to app
+    (async () => {
+      try {
+        const r = await fetch(`${BACKEND}/auth/me`, { credentials: 'include' });
+        const d = await r.json();
+        if (d.authenticated) window.location.replace('index.html');
+      } catch (_) {}
+    })();
+
+    /* ── Password strength ── */
+    const segments  = ['s1','s2','s3','s4'];
+    const levels    = ['','Weak','Fair','Good','Strong'];
+    const classes   = ['','weak','weak','medium','strong'];
+
+    document.getElementById('password').addEventListener('input', function() {
+      const v = this.value;
+      let score = 0;
+      if (v.length >= 6)  score++;
+      if (v.length >= 10) score++;
+      if (/[A-Z]/.test(v) || /\d/.test(v)) score++;
+      if (/[^A-Za-z0-9]/.test(v)) score++;
+
+      segments.forEach((id, i) => {
+        const el = document.getElementById(id);
+        el.className = 'strength-seg';
+        if (i < score) el.classList.add(classes[score]);
+      });
+      document.getElementById('strength-label').textContent = v ? levels[score] : '\u00a0';
+    });
+
+    /* ── Helpers ── */
+    function showError(msg) {
+      const b = document.getElementById('error-banner');
+      document.getElementById('error-text').textContent = msg;
+      b.classList.add('show');
+      document.getElementById('success-banner').classList.remove('show');
+    }
+    function showSuccess(msg) {
+      const b = document.getElementById('success-banner');
+      document.getElementById('success-text').textContent = msg;
+      b.classList.add('show');
+      document.getElementById('error-banner').classList.remove('show');
+    }
+    function setLoading(on) {
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = on;
+      btn.innerHTML = on
+        ? '<span class="spinner"></span>Creating account...'
+        : 'Create Account';
+    }
+    function clearErrors() {
+      document.getElementById('error-banner').classList.remove('show');
+      document.querySelectorAll('.form-input').forEach(i => i.classList.remove('error'));
+    }
+    function markError(id) { document.getElementById(id).classList.add('error'); }
+
+    /* ── Submit ── */
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      const name     = document.getElementById('name').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirm  = document.getElementById('confirm').value;
+
+      let valid = true;
+      if (!name)                       { markError('name');     valid = false; }
+      if (!email || !email.includes('@')) { markError('email');  valid = false; }
+      if (password.length < 6)         { markError('password'); valid = false; }
+      if (password !== confirm)        { markError('confirm');  valid = false; }
+
+      if (!valid) {
+        showError(password !== confirm && password.length >= 6
+          ? 'Passwords do not match.'
+          : 'Please fill in all fields correctly (password min. 6 chars).');
+        return;
+      }
+
+      setLoading(true);
+      try {
+        const res = await fetch(`${BACKEND}/auth/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ name, email, password }),
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          showError(data.error || 'Registration failed. Please try again.');
+          setLoading(false);
+          return;
+        }
+
+        sessionStorage.setItem('nexus_user', JSON.stringify(data.user));
+        showSuccess(`Welcome to NEXUS, ${data.user.name}! Redirecting…`);
+        setTimeout(() => window.location.replace('index.html'), 1000);
+
+      } catch (err) {
+        showError('Cannot reach the NEXUS backend. Make sure it is running on port 5000.');
+        setLoading(false);
+      }
+    });
+  </script>
+</body>
+</html>
