@@ -3,8 +3,10 @@ Route: POST /api/simulate
 Life Decision Simulator endpoint.
 """
 from flask import Blueprint, request, jsonify
+from flask_login import current_user
 from utils.simulator_engine import simulate, BASE_SCENARIOS
 from utils.ai_engine import generate_ai_recommendation
+from models_sqlite import Simulation
 
 simulator_bp = Blueprint("simulator", __name__)
 
@@ -39,7 +41,34 @@ def run_simulation():
     )
     result["recommendation"] = ai_rec if ai_rec else result["base_rec"]
 
+    # Save to history if user is authenticated
+    if current_user.is_authenticated:
+        try:
+            path_a_prob = int(result["pathA"]["prob"].split("%")[0])
+            path_b_prob = int(result["pathB"]["prob"].split("%")[0])
+            Simulation.save(
+                user_id=current_user.id,
+                scenario=scenario_key,
+                params=params,
+                path_a_prob=path_a_prob,
+                path_b_prob=path_b_prob,
+                recommendation=result["recommendation"]
+            )
+        except Exception as e:
+            print(f"[WARN] Failed to save simulation: {e}")
+
     # Clean up internal field
     result.pop("base_rec", None)
 
     return jsonify(result), 200
+
+
+@simulator_bp.route("/simulate/history", methods=["GET"])
+def simulation_history():
+    """Get simulation history for the current user."""
+    if not current_user.is_authenticated:
+        return jsonify({"error": "Authentication required"}), 401
+    
+    limit = request.args.get('limit', 20, type=int)
+    history = Simulation.get_history(current_user.id, limit)
+    return jsonify({"history": history}), 200

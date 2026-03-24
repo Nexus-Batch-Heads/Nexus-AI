@@ -4,7 +4,7 @@ Auth routes: register, login, logout, me
 import time
 from flask import Blueprint, request, jsonify, session
 from flask_login import login_user, logout_user, login_required, current_user
-from models import User
+from models_sqlite import User
 
 auth_bp = Blueprint("auth", __name__)
 
